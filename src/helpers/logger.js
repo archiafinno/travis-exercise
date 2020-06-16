@@ -33,11 +33,11 @@ const logger = winston.createLogger({
   exitOnError: false,
 });
 
-const customLogger = (level, msg, req, payload ) => {
-  if (level === 'info') {
-    logger[level](`date: ${new Date()}, MSG: ${msg}, METHOD: ${req.method}, PATH: ${req.path}, BODY: ${JSON.stringify(req.body)}, PARAMS: ${JSON.stringify(req.params)}, QUERY: ${JSON.stringify(req.query)}, PAYLOAD: ${JSON.stringify(payload)}`)
-  } else if (level === 'error') {
-    logger[level](`date: ${new Date()}, MSG: ${msg}, METHOD: ${req.method}, PATH: ${req.path}, BODY: ${JSON.stringify(req.body)}, PARAMS: ${JSON.stringify(req.params)}, QUERY: ${JSON.stringify(req.query)}`)
+const customLogger = (level, msg, req, payload) => {
+  if (level === "info") {
+    logger[level](`date: ${new Date()}, MSG: ${msg}, METHOD: ${req.method}, PATH: ${req.path}, BODY: ${JSON.stringify(req.body)}, PARAMS: ${JSON.stringify(req.params)}, QUERY: ${JSON.stringify(req.query)}, PAYLOAD: ${JSON.stringify(payload)}`);
+  } else if (level === "error") {
+    logger[level](`date: ${new Date()}, MSG: ${msg}, METHOD: ${req.method}, PATH: ${req.path}, BODY: ${JSON.stringify(req.body)}, PARAMS: ${JSON.stringify(req.params)}, QUERY: ${JSON.stringify(req.query)}`);
   }
-}
-module.exports = { logger, customLogger }
+};
+module.exports = { logger, customLogger };

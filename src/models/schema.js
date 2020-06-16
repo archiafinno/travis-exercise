@@ -1,5 +1,3 @@
-const SqlString = require("sqlstring");
-
 module.exports.CreateTableRides = (db) => {
   const createRideTableSchema = `
         CREATE TABLE Rides
@@ -20,5 +18,3 @@ module.exports.CreateTableRides = (db) => {
 
   return db;
 };
-
-

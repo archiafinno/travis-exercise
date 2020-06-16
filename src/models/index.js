@@ -2,7 +2,7 @@ const SqlString = require("sqlstring");
 const validation = require("../helpers/validation");
 
 class RidesModel {
-  static async GetRides (db, limit, offset) {
+  static async GetRides(db, limit, offset) {
     try {
       const getRidesQuery = SqlString.format("SELECT * FROM Rides LIMIT ? OFFSET ?", [limit, offset]);
       const rows = await db.allAsync(getRidesQuery);
@@ -12,29 +12,29 @@ class RidesModel {
           result: {
             error_code: "RIDES_NOT_FOUND_ERROR",
             message: "Could not find any rides",
-          }
+          },
         };
       }
       return {
         status: 200,
-        result: rows
+        result: rows,
       };
     } catch (err) {
       return {
-        status: 500, 
+        status: 500,
         result: {
           error_code: "SERVER_ERROR",
           message: "Unknown error",
-        }
+        },
       };
     }
-  };
+  }
 
-  static async PostRide (db, payload) {
+  static async PostRide(db, payload) {
     try {
       const payloadCheck = validation.ValidationCreate(payload);
       if (payloadCheck !== null) {
-        return payloadCheck
+        return payloadCheck;
       }
       const values = [payload.body.start_lat, payload.body.start_long,
         payload.body.end_lat, payload.body.end_long, payload.body.rider_name,
@@ -45,20 +45,20 @@ class RidesModel {
       const lastRide = await db.allAsync(SqlString.format("SELECT * FROM Rides WHERE rideID = ?", insertedRow.lastID));
       return {
         status: 201,
-        result: lastRide
+        result: lastRide,
       };
     } catch (err) {
       return {
-        status: 500, 
+        status: 500,
         result: {
           error_code: "SERVER_ERROR",
           message: "Unknown error",
-        }
+        },
       };
     }
-  };
+  }
 
-  static async GetRideById (db, id) {
+  static async GetRideById(db, id) {
     try {
       const findQuery = SqlString.format("SELECT * FROM Rides WHERE rideID=?", id);
       const rows = await db.allAsync(findQuery);
@@ -68,24 +68,23 @@ class RidesModel {
           result: {
             error_code: "RIDES_NOT_FOUND_ERROR",
             message: "Could not find any rides",
-          }
+          },
         };
       }
       return {
         status: 200,
-        result: rows
+        result: rows,
       };
     } catch (err) {
       return {
-        status: 500, 
+        status: 500,
         result: {
           error_code: "SERVER_ERROR",
           message: "Unknown error",
-        }
+        },
       };
     }
-  };
+  }
 }
 
-module.exports = RidesModel
-
+module.exports = RidesModel;

@@ -15,7 +15,7 @@ module.exports.ValidationCreate = (req) => {
       result: {
         error_code: "VALIDATION_ERROR",
         message: "Start latitude and longitude must be between -90 - 90 and -180 to 180 degrees respectively",
-      }
+      },
     };
   }
 
@@ -27,7 +27,7 @@ module.exports.ValidationCreate = (req) => {
       result: {
         error_code: "VALIDATION_ERROR",
         message: "End latitude and longitude must be between -90 - 90 and -180 to 180 degrees respectively",
-      }
+      },
     };
   }
 
@@ -37,7 +37,7 @@ module.exports.ValidationCreate = (req) => {
       result: {
         error_code: "VALIDATION_ERROR",
         message: "Rider name must be a non empty string",
-      }
+      },
     };
   }
 
@@ -47,7 +47,7 @@ module.exports.ValidationCreate = (req) => {
       result: {
         error_code: "VALIDATION_ERROR",
         message: "Driver name must be a non empty string",
-      }
+      },
     };
   }
 
@@ -57,7 +57,7 @@ module.exports.ValidationCreate = (req) => {
       result: {
         error_code: "VALIDATION_ERROR",
         message: "Driver vehicle must be a non empty string",
-      }
+      },
     };
   }
 

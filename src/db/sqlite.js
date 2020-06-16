@@ -1,7 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 
 const db = new sqlite3.Database(":memory:");
-const logger = require("../helpers/logger");
 
 db.allAsync = function dbAll(sql) {
   const that = this;

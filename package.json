@@ -9,13 +9,13 @@
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha tests",
     "test:load": "artillery run artillery/config.yml",
-    "eslint-fix": "eslint --fix src",
+    "lint": "eslint --fix src",
     "start": "node index.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test",
-      "pre-push": "npm run test"
+      "pre-commit": "npm lint && npm test",
+      "pre-push": "npm lint && npm test"
     }
   },
   "keywords": [

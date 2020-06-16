@@ -12,9 +12,12 @@
     "eslint-fix": "eslint --fix src",
     "start": "node index.js"
   },
-  "pre-push": [
-    "test"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
   "keywords": [
     "Xendit"
   ],
@@ -36,10 +39,9 @@
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "git-pre-push": "0.0.5",
+    "husky": "^4.2.5",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
-    "pre-push": "^0.1.1",
     "supertest": "^4.0.2"
   }
 }

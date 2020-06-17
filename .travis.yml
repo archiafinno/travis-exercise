@@ -7,9 +7,3 @@ install:
 script:
   - npm run test
   - npm run test:load
-deploy:   
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: master

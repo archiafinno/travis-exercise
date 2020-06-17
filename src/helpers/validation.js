@@ -7,9 +7,9 @@ module.exports.ValidationCreate = (req) => {
   const driverName = req.body.driver_name;
   const driverVehicle = req.body.driver_vehicle;
 
-  const startLatCheck = startLatitude < -90 || startLatitude > 90;
-  const startLongCheck = startLongitude < -180 || startLongitude > 180;
-  if (startLatCheck || startLongCheck) {
+  const checkStartLat = startLatitude < -90 || startLatitude > 90;
+  const checkStartLong = startLongitude < -180 || startLongitude > 180;
+  if (checkStartLat || checkStartLong) {
     return {
       status: 400,
       result: {
@@ -19,9 +19,9 @@ module.exports.ValidationCreate = (req) => {
     };
   }
 
-  const endLatCheck = endLatitude < -90 || endLatitude > 90;
-  const endLongCheck = endLongitude < -180 || endLongitude > 180;
-  if (endLatCheck || endLongCheck) {
+  const checkEndLat = endLatitude < -90 || endLatitude > 90;
+  const checkEndLong = endLongitude < -180 || endLongitude > 180;
+  if (checkEndLat || checkEndLong) {
     return {
       status: 400,
       result: {

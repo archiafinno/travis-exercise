@@ -40,8 +40,8 @@ class RidesModel {
         payload.body.end_lat, payload.body.end_long, payload.body.rider_name,
         payload.body.driver_name, payload.body.driver_vehicle];
 
-      const insertQuery = SqlString.format("INSERT INTO Rides(startLat, startLong, endLat, endLong, riderName, driverName, driverVehicle) VALUES (?, ?, ?, ?, ?, ?, ?)", values);
-      const insertedRow = await db.runAsync(insertQuery);
+      const postQuery = SqlString.format("INSERT INTO Rides(startLat, startLong, endLat, endLong, riderName, driverName, driverVehicle) VALUES (?, ?, ?, ?, ?, ?, ?)", values);
+      const insertedRow = await db.runAsync(postQuery);
       const lastRide = await db.allAsync(SqlString.format("SELECT * FROM Rides WHERE rideID = ?", insertedRow.lastID));
       return {
         status: 201,

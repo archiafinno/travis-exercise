@@ -31,12 +31,12 @@ module.exports.ValidationCreate = (req) => {
     };
   }
 
-  if (typeof riderName !== "string" || riderName.length < 1) {
+  if (typeof driverVehicle !== "string" || driverVehicle.length < 1) {
     return {
       status: 400,
       result: {
         error_code: "VALIDATION_ERROR",
-        message: "Rider name must be a non empty string",
+        message: "Driver vehicle must be a non empty string",
       },
     };
   }
@@ -51,12 +51,12 @@ module.exports.ValidationCreate = (req) => {
     };
   }
 
-  if (typeof driverVehicle !== "string" || driverVehicle.length < 1) {
+  if (typeof riderName !== "string" || riderName.length < 1) {
     return {
       status: 400,
       result: {
         error_code: "VALIDATION_ERROR",
-        message: "Driver vehicle must be a non empty string",
+        message: "Rider name must be a non empty string",
       },
     };
   }

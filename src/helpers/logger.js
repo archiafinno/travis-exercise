@@ -1,10 +1,10 @@
 const winston = require("winston");
 const appRoot = require("app-root-path");
 
-// const date = new Date();
-// const year = date.getFullYear();
-// const month = date.getMonth();
-// const day = date.getDate();
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth();
+const day = date.getDate();
 
 const options = {
   file: {

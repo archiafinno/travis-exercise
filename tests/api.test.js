@@ -100,16 +100,16 @@ describe("API tests", () => {
         .expect(400, msg, done);
     });
 
-    it("should return error because invalid rider name", (done) => {
-      const invalidRiderName = {...payload }
-      invalidRiderName.rider_name = ""
+    it("should return error because invalid vehicle name", (done) => {
+      const invalidVehicle = {...payload }
+      invalidVehicle.driver_vehicle = ""
       const msg = {
         error_code: "VALIDATION_ERROR",
-        message: "Rider name must be a non empty string",
+        message: "Driver vehicle must be a non empty string",
       }
       request(app)
         .post("/rides")
-        .send(invalidRiderName)
+        .send(invalidVehicle)
         .expect("Content-Type", "application/json; charset=utf-8")
         .expect(400, msg, done);
     });
@@ -128,16 +128,16 @@ describe("API tests", () => {
         .expect(400, msg, done);
     });
 
-    it("should return error because invalid vehicle name", (done) => {
-      const invalidVehicle = {...payload }
-      invalidVehicle.driver_vehicle = ""
+    it("should return error because invalid rider name", (done) => {
+      const invalidRiderName = {...payload }
+      invalidRiderName.rider_name = ""
       const msg = {
         error_code: "VALIDATION_ERROR",
-        message: "Driver vehicle must be a non empty string",
+        message: "Rider name must be a non empty string",
       }
       request(app)
         .post("/rides")
-        .send(invalidVehicle)
+        .send(invalidRiderName)
         .expect("Content-Type", "application/json; charset=utf-8")
         .expect(400, msg, done);
     });

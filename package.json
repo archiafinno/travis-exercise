@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "npm run lint && nyc --reporter=html --reporter=text mocha tests",
-    "test:load": "forever start --minUptime 1000 --spinSleepTime 1000 index.js && artillery run artillery/config.yml",
+    "test:load": "forever start --minUptime 1000 --spinSleepTime 1000 index.js && artillery run artillery/config.yml && forever stopall",
     "lint": "eslint --fix src",
     "start": "node index.js"
   },

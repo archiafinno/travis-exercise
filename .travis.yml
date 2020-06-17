@@ -7,7 +7,6 @@ install:
 script:
   - npm run test
   - npm run test:load
-  - npm run forever:stop
 deploy:   
   provider: pages
   skip-cleanup: true

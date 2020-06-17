@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "npm run lint && nyc --reporter=html --reporter=text mocha tests",
-    "test:load": "forever start --minUptime 1000 --spinSleepTime 1000 index.js && artillery run artillery/config.yml && forever stopall",
+    "test:load": "forever start --minUptime 1000 --spinSleepTime 1000 index.js && artillery run loadtest.yml && forever stopall",
     "lint": "eslint --fix src",
     "start": "node index.js"
   },
@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "app-root-path": "^3.0.0",
+    "artillery": "^1.6.0",
     "body-parser": "^1.19.0",
     "config": "^3.2.2",
     "express": "^4.16.4",

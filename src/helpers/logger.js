@@ -9,8 +9,8 @@ const appRoot = require("app-root-path");
 const options = {
   file: {
     level: "info",
-    // filename: `${appRoot}/logger/logs/${year}/${month}/${year}-${month}-${day}.log`,
-    filename: `${appRoot}/logs/app.log`,
+    filename: `${appRoot}/logger/logs/${year}/${month}/${year}-${month}-${day}.log`,
+    // filename: `${appRoot}/logs/app.log`,
     handleExceptions: true,
     json: true,
     maxsize: 5242880,

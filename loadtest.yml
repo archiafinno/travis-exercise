@@ -14,7 +14,7 @@ scenarios:
             end_long: 5
             rider_name: "sarita"
             driver_name: "ujang"
-            driver_vehicle: "Bmw"
+            driver_vehicle: "Mercedes"
       - get:
           url: "/rides"
       - get:

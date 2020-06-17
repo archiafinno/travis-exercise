@@ -7,15 +7,15 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha tests",
-    "test:load": "forever start index.js && artillery run artillery/config.yml && forever stopall",
+    "test": "npm run lint && nyc --reporter=html --reporter=text mocha tests",
+    "test:load": "forever start --minUptime 1000 --spinSleepTime 1000 index.js && artillery run artillery/config.yml",
     "lint": "eslint --fix src",
     "start": "node index.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test",
-      "pre-push": "npm run lint && npm run test"
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
     }
   },
   "keywords": [
@@ -29,6 +29,7 @@
     "config": "^3.2.2",
     "express": "^4.16.4",
     "express-basic-auth": "^1.2.0",
+    "forever": "^3.0.0",
     "husky": "^4.2.5",
     "sqlite3": "^4.0.6",
     "sqlstring": "^2.3.1",

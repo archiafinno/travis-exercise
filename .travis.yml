@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 10.16.3
+cache: npm
+install:
+  - npm install
+script:
+  - npm run test
+  - npm run test:load
+  - npm run forever:stop
+deploy:   
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: first

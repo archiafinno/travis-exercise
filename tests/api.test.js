@@ -4,15 +4,15 @@ const db = require("../src/db/sqlite");
 const app = require("../src/app")(db);
 const rides = require("../src/models/schema");
 
-// let payload = {
-//   start_lat: 0,
-//   start_long: 0,
-//   end_lat: 0,
-//   end_long: 0,
-//   rider_name: "Ujang",
-//   driver_name: "Sarita",
-//   driver_vehicle: "Mercedes",
-// }
+let payload = {
+  start_lat: 0,
+  start_long: 0,
+  end_lat: 0,
+  end_long: 0,
+  rider_name: "Ujang",
+  driver_name: "Sarita",
+  driver_vehicle: "Mercedes",
+}
 
 describe("API tests", () => {
   before((done) => {

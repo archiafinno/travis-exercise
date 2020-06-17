@@ -8,14 +8,14 @@
   },
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha tests",
-    "test:load": "artillery run artillery/config.yml",
+    "test:load": "forever start index.js && artillery run artillery/config.yml && forever stopall",
     "lint": "eslint --fix src",
     "start": "node index.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm lint && npm test",
-      "pre-push": "npm lint && npm test"
+      "pre-commit": "npm run lint && npm run test",
+      "pre-push": "npm run lint && npm run test"
     }
   },
   "keywords": [
@@ -29,6 +29,7 @@
     "config": "^3.2.2",
     "express": "^4.16.4",
     "express-basic-auth": "^1.2.0",
+    "husky": "^4.2.5",
     "sqlite3": "^4.0.6",
     "sqlstring": "^2.3.1",
     "winston": "^3.2.1"
@@ -39,7 +40,6 @@
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "husky": "^4.2.5",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "supertest": "^4.0.2"
